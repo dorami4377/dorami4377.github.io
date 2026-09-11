@@ -88,7 +88,19 @@
       ]
     }
   ],
-  "posts": [],
+  "posts": [
+    {
+      "id": "post_f4278f50",
+      "slug": "khichuri-a-taste-of-home",
+      "title": "Khichuri : A taste of Home ",
+      "excerpt": "It was pouring outside.&nbsp; Arohi woke up at 7.30 am . Usually she woke up at 7 am but since&nbsp; it was holiday , she slept a little longer. She was a…",
+      "content": "It was pouring outside.&nbsp;\n\nArohi woke up at 7.30 am . Usually she woke up at 7 am but since&nbsp; it was holiday , she slept a little longer. She was a working woman and lived alone in an apartment . She had to prepare herself breakfast but couldn’t decide what to cook. Suddenly an idea popped into her mind .\n\n“ Khichuri.”\n\n“ It will be perfect for today’s weather.”\n\nAt first, she freshened up . Then she went to the&nbsp; kitchen and prepared everything. She started cutting the&nbsp; vegetables and washing the rice and lentils . She put a pan on the stove and started cooking.&nbsp;\n\nSuddenly she remembered the old days.&nbsp;\n\nOn a rainy day , her mother used to cook Khichuri for whole family. She and her brothers waited eagerly in the dining table.&nbsp;\n\n“ Ma , how long we have to wait ?? We are starving. ”\n\n“ wait two minutes, dear .”\n\n“ Ok ”\n\n“ Here your Khichuri, enjoy ! . ”\n\nHer mother served the Khichuri with fried brinjal , potatoes and many other side dishes.&nbsp;\n\nThey loved it .&nbsp;\n\n“oh , delicious!”\n\n“ Yummy !”\n\nArohi suddenly came back to reality.&nbsp;&nbsp;\n\nShe served her plain Khichuri in a bowl and looked around at her empty dining space . The apartment was silent. Her&nbsp; heart felt heavy. Tears unconsciously welled up in her eyes…..\n\nShe took a spoonful of Khichuri and smiled faintly. Somehow it didn’t taste the same anymore.&nbsp;",
+      "tags": [],
+      "date": "2026-09-11T09:00:00.000Z",
+      "draft": false,
+      "featured": false
+    }
+  ],
   "footer": {
     "text": "© 2026 dorami4377's Blog",
     "links": [],
@@ -111,6 +123,6 @@
   },
   "images": {},
   "createdAt": "2026-09-11T08:05:50.204Z",
-  "updatedAt": "2026-09-11T08:05:50.320Z",
-  "lastPublishedCommit": "2456f6d7c9bff220d9926acf473055a5af4aa05f"
+  "updatedAt": "2026-09-11T08:14:33.646Z",
+  "lastPublishedCommit": "b2b3738000b6364cb87a896b1680ff00f53685f8"
 }
