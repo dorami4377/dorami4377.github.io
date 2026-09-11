@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "id": "site_164125b6",
+  "name": "dorami4377's Blog",
+  "tagline": "Thoughts, stories and ideas.",
+  "description": "My thoughts, learning, and perspectives",
+  "language": "en",
+  "author": {
+    "name": "dorami4377",
+    "bio": "Writer of this blog."
+  },
+  "template": "pastel",
+  "theme": {
+    "primary": "#f97066",
+    "accent": "#8b5cf6",
+    "background": "#fff7f2",
+    "surface": "#ffeee6",
+    "text": "#2d2a32",
+    "muted": "#7a7280",
+    "headingFont": "Poppins",
+    "bodyFont": "Nunito",
+    "radius": "lg",
+    "mode": "light",
+    "spacing": "roomy",
+    "layout": "cards",
+    "containerWidth": "normal"
+  },
+  "nav": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Posts",
+      "href": "/posts/"
+    },
+    {
+      "label": "About",
+      "href": "/about/"
+    }
+  ],
+  "pages": [
+    {
+      "id": "page_25878d1e",
+      "slug": "",
+      "title": "Home",
+      "order": 0,
+      "showInNav": true,
+      "sections": [
+        {
+          "id": "sec_6b4b1eb1",
+          "type": "hero",
+          "props": {
+            "title": "dorami4377's Blog",
+            "subtitle": "Thoughts, stories and ideas.",
+            "ctaLabel": "Read the blog",
+            "ctaHref": "/posts/",
+            "align": "center"
+          }
+        },
+        {
+          "id": "sec_bc5f21e5",
+          "type": "posts",
+          "props": {
+            "title": "Latest posts",
+            "count": 6,
+            "showExcerpt": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "page_f34df648",
+      "slug": "about",
+      "title": "About",
+      "order": 1,
+      "showInNav": true,
+      "sections": [
+        {
+          "id": "sec_e7e8ff51",
+          "type": "about",
+          "props": {
+            "title": "About",
+            "text": "Hi! I'm dorami4377. Tell readers who you are and why you write.",
+            "image": ""
+          }
+        }
+      ]
+    }
+  ],
+  "posts": [],
+  "footer": {
+    "text": "© 2026 dorami4377's Blog",
+    "links": [],
+    "social": []
+  },
+  "settings": {
+    "customCss": "",
+    "customHead": "",
+    "customDomain": "",
+    "analytics": {
+      "provider": "none",
+      "id": ""
+    },
+    "showSearch": true,
+    "showRss": true,
+    "showDarkToggle": true,
+    "showReadingTime": true,
+    "postsPerPage": 10,
+    "seo": {}
+  },
+  "images": {},
+  "createdAt": "2026-09-11T08:05:50.204Z",
+  "updatedAt": "2026-09-11T08:05:50.320Z",
+  "lastPublishedCommit": "2456f6d7c9bff220d9926acf473055a5af4aa05f"
+}
