@@ -90,6 +90,17 @@
   ],
   "posts": [
     {
+      "id": "post_33486296",
+      "slug": "a-kitkat",
+      "title": "A KitKat ",
+      "excerpt": "Sometimes love looks like anger first—a story about a sister, her little brother, and a simple act of care.",
+      "content": "Ruby is an 8-year-old schoolgirl. She wears spectacles to see clearly. One day, she returned home early and brought a KitKat. She wanted to find her brother and share it with him.\n\nShe looked around the room, but she couldn't find him. Confused, she walked to the window and looked outside.\n\nThere he was!\n\nShe went to the garden, where her brother, Tom, was playing. His hands were covered with soil. Seeing this, she became angry and shouted at him.\n\nShe grabbed his hand and took him to the bathroom. Tom looked at her innocently.\n\nRuby carefully cleaned his dirty hands. After that, her anger slowly disappeared. Then, she gently stroked her little brother's hair.\n\nShe smiled and gave him a KitKat.\n\nSometimes, love looks like anger first—but it is still love.",
+      "tags": [],
+      "date": "2026-09-12T09:00:00.000Z",
+      "draft": false,
+      "featured": false
+    },
+    {
       "id": "post_53113cdd",
       "slug": "heartless",
       "title": "Heartless ",
@@ -135,6 +146,6 @@
   },
   "images": {},
   "createdAt": "2026-09-11T08:05:50.204Z",
-  "updatedAt": "2026-09-11T11:26:54.075Z",
-  "lastPublishedCommit": "77e2b0fcdb32217b2a8f0233bf63b482653186b1"
+  "updatedAt": "2026-09-12T11:40:23.732Z",
+  "lastPublishedCommit": "ca17ce2c08d2d5a7aca90c3a1cd7e07eb56d309e"
 }
