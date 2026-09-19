@@ -23,7 +23,9 @@
     "mode": "light",
     "spacing": "roomy",
     "layout": "cards",
-    "containerWidth": "normal"
+    "containerWidth": "normal",
+    "effect": "flat",
+    "structure": "classic"
   },
   "nav": [
     {
@@ -145,19 +147,28 @@
     "customCss": "",
     "customHead": "",
     "customDomain": "",
+    "favicon": "",
     "analytics": {
       "provider": "none",
       "id": ""
+    },
+    "comments": {
+      "provider": "giscus",
+      "repo": "dorami4377/dorami4377.github.io",
+      "repoId": "R_kgDOUWW4Gg",
+      "category": "Announcements",
+      "categoryId": "DIC_kwDOUWW4Gs4DF9Ct"
     },
     "showSearch": true,
     "showRss": true,
     "showDarkToggle": true,
     "showReadingTime": true,
+    "showShare": true,
     "postsPerPage": 10,
     "seo": {}
   },
   "images": {},
   "createdAt": "2026-09-11T08:05:50.204Z",
-  "updatedAt": "2026-09-13T07:03:49.872Z",
-  "lastPublishedCommit": "4adf6a1d7b7282481374c0407bb96eec29fc4109"
+  "updatedAt": "2026-09-19T13:52:19.447Z",
+  "lastPublishedCommit": "543cfb5b81d8fbda24c9d679db6e2f7f5653f60e"
 }

@@ -9,12 +9,15 @@
       var open = nav.classList.toggle("is-open");
       navToggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
-    nav.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", function () {
-        nav.classList.remove("is-open");
-        navToggle.setAttribute("aria-expanded", "false");
-      });
+    var closeNav = function () {
+      nav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    };
+    nav.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", closeNav); });
+    document.addEventListener("click", function (e) {
+      if (nav.classList.contains("is-open") && !nav.contains(e.target) && !navToggle.contains(e.target)) closeNav();
     });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeNav(); });
   }
 
   document.querySelectorAll("pre > code").forEach(function (code) {
@@ -59,7 +62,92 @@
       var next = effectiveDark ? "light" : "dark";
       document.documentElement.setAttribute("data-theme", next);
       try { localStorage.setItem(STORAGE_KEY, next); } catch (e) {}
+      sendGiscusTheme();
     });
+  }
+
+  var giscusBox = document.querySelector(".giscus[data-repo]");
+  function giscusTheme() {
+    var mode = giscusBox && giscusBox.getAttribute("data-mode");
+    var dark;
+    if (mode === "dark" || mode === "light") {
+      dark = mode === "dark";
+    } else {
+      var current = document.documentElement.getAttribute("data-theme");
+      dark = current ? current === "dark" : !!(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    }
+    // Our own stylesheet only exists on the published site; previews fall back to giscus's built-in look.
+    if (location.protocol === "https:" || location.protocol === "http:") {
+      try { return new URL(root + "assets/giscus" + (dark ? "-dark" : "") + ".css", location.href).href; } catch (e) {}
+    }
+    return dark ? "dark" : "light";
+  }
+  function sendGiscusTheme() {
+    var frame = document.querySelector("iframe.giscus-frame");
+    if (frame) frame.contentWindow.postMessage({ giscus: { setConfig: { theme: giscusTheme() } } }, "https://giscus.app");
+  }
+  if (giscusBox) {
+    var gs = document.createElement("script");
+    gs.src = "https://giscus.app/client.js";
+    gs.async = true;
+    gs.crossOrigin = "anonymous";
+    var gAttrs = {
+      "data-repo": giscusBox.getAttribute("data-repo"),
+      "data-repo-id": giscusBox.getAttribute("data-repo-id"),
+      "data-category": giscusBox.getAttribute("data-category"),
+      "data-category-id": giscusBox.getAttribute("data-category-id"),
+      "data-mapping": "pathname",
+      "data-strict": "0",
+      "data-reactions-enabled": "1",
+      "data-emit-metadata": "0",
+      "data-input-position": "top",
+      "data-lang": "en",
+      "data-theme": giscusTheme()
+    };
+    Object.keys(gAttrs).forEach(function (k) { gs.setAttribute(k, gAttrs[k] || ""); });
+    giscusBox.parentNode.appendChild(gs);
+    window.addEventListener("message", function (e) {
+      if (e.origin !== "https://giscus.app") return;
+      var loading = document.querySelector(".giscus-loading");
+      if (loading) loading.parentNode.removeChild(loading);
+    });
+  }
+
+  var shareBox = document.querySelector("[data-share]");
+  if (shareBox) {
+    var shareUrl = window.location.href;
+    var shareTitle = document.title;
+    var networks = {
+      x: "https://twitter.com/intent/tweet?url=" + encodeURIComponent(shareUrl) + "&text=" + encodeURIComponent(shareTitle),
+      facebook: "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(shareUrl),
+      linkedin: "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(shareUrl)
+    };
+    shareBox.querySelectorAll("[data-share-network]").forEach(function (a) {
+      var net = a.getAttribute("data-share-network");
+      if (net && networks[net]) a.setAttribute("href", networks[net]);
+    });
+    var copyBtn = shareBox.querySelector("[data-share-copy]");
+    if (copyBtn) {
+      copyBtn.addEventListener("click", function () {
+        var done = function () {
+          copyBtn.classList.add("is-copied");
+          copyBtn.setAttribute("aria-label", "Link copied");
+          setTimeout(function () {
+            copyBtn.classList.remove("is-copied");
+            copyBtn.setAttribute("aria-label", "Copy link");
+          }, 1500);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(shareUrl).then(done, done);
+        } else {
+          var ta = document.createElement("textarea");
+          ta.value = shareUrl; ta.style.position = "fixed"; ta.style.opacity = "0";
+          document.body.appendChild(ta); ta.select();
+          try { document.execCommand("copy"); } catch (e) {}
+          document.body.removeChild(ta); done();
+        }
+      });
+    }
   }
 
   var searchInputs = document.querySelectorAll("[data-search-input]");
