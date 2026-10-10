@@ -73,15 +73,25 @@ main {
 :is(#__next, html) main .gsc-reactions-button { border-radius: 999px; }
 
 /* comment list */
-:is(#__next, html) main .gsc-comments-count, main .gsc-comments-count-separator { font-size: 15px; }
+/* giscus's own header: the comment count linking out to the GitHub discussion,
+   and its "powered by giscus" credit. The page already has a Comments heading;
+   the sort buttons in .gsc-right-header stay. */
+:is(#__next, html) main .gsc-left-header { display: none; }
+/* with the left header gone the header row is empty until there are comments to
+   sort, and .gsc-comments still spaces it like a child — so drop it entirely. */
+:is(#__next, html) main .gsc-header:not(:has(.gsc-right-header)) { display: none; }
 :is(#__next, html) main .gsc-comments { gap: 18px; }
 :is(#__next, html) main .gsc-timeline { gap: 18px; }
 :is(#__next, html) main .gsc-comment > div { border: 0 !important; background: transparent !important; border-radius: 0 !important; }
 :is(#__next, html) main .gsc-comment-header { padding: 0; }
 :is(#__next, html) main .gsc-comment-author-avatar img { width: 36px; height: 36px; margin-right: 10px; }
 :is(#__next, html) main .gsc-comment-author-avatar span { font-weight: 700; color: #2d2a32; }
+/* the timestamp is a link to the comment on GitHub; keep the time, drop the trip out */
 :is(#__next, html) main .gsc-comment-author .link-secondary,
-:is(#__next, html) main .gsc-reply-author .link-secondary { font-size: 12px; color: #7a7280; text-decoration: none; }
+:is(#__next, html) main .gsc-reply-author .link-secondary {
+  font-size: 12px; color: #7a7280; text-decoration: none;
+  pointer-events: none; cursor: default;
+}
 :is(#__next, html) main .gsc-comment-author-avatar img,
 :is(#__next, html) main .gsc-reply-author-avatar img { border-radius: 50%; }
 :is(#__next, html) main .gsc-comment-content {
@@ -112,14 +122,19 @@ main {
 }
 
 /* write-a-comment box */
-:is(#__next, html) main .gsc-comment-box:not(.gsc-comment-box-is-reply) { border: 0; background: transparent; }
+/* the reply composer carries giscus's own color-bg-primary, which reads as a
+   white card on light and glass themes; the rounded textarea is the only
+   surface either box needs. */
+:is(#__next, html) main .gsc-comment-box { border: 0; background: transparent; }
 :is(#__next, html) main .gsc-comment-box-tabs,
 :is(#__next, html) main .gsc-comment-box-textarea-extras { display: none; }
 :is(#__next, html) main .gsc-comment-box-main { margin: 0; }
 :is(#__next, html) main .gsc-comment-box-write:focus-within { box-shadow: none; }
+/* giscus grows the box itself as you type (resizeTextArea), so the native drag
+   handle has nothing to do but poke through the rounded corner. */
 :is(#__next, html) main .gsc-comment-box-textarea {
   min-height: 46px; padding: 12px 18px; border: 1px solid transparent; border-radius: 22px;
-  background: color-mix(in srgb, #2d2a32 6%, #fff7f2); color: #2d2a32; font-size: 15px;
+  background: color-mix(in srgb, #2d2a32 6%, #fff7f2); color: #2d2a32; font-size: 15px; resize: none;
 }
 :is(#__next, html) main .gsc-comment-box-textarea:focus { border-color: #f97066; background: #fff7f2; }
 :is(#__next, html) main .gsc-comment-box-bottom { margin: 8px 0 0; }

@@ -92,6 +92,17 @@
   ],
   "posts": [
     {
+      "id": "post_f2928867",
+      "slug": "expectation",
+      "title": "Expectation ",
+      "excerpt": "A reflection on how expectations can lead to disappointment..",
+      "content": "Expectation is the killer of happiness. \n\n   When you expect something from someone , but they fail to meet your expectations, it hurts. It really does. Sometimes, the pain is so deep that your eyes tell a different story while all you can manage is a smile on your lips. \n\n   The less you expect, the more peaceful you become. Sometimes, you have to accept the grim reality that not everyone will give you what you hope for , and not everything will turn out the  way you imagined .\n\n**Don’t let your expectations determine your happiness. ✨ **",
+      "tags": [],
+      "date": "2026-10-10T09:00:00.000Z",
+      "draft": false,
+      "featured": false
+    },
+    {
       "id": "post_e6d43481",
       "slug": "secret-admirer",
       "title": "Secret admirer ",
@@ -159,6 +170,12 @@
       "category": "Announcements",
       "categoryId": "DIC_kwDOUWW4Gs4DF9Ct"
     },
+    "weather": {
+      "enabled": false,
+      "lat": 0,
+      "lon": 0,
+      "place": ""
+    },
     "showSearch": true,
     "showRss": true,
     "showDarkToggle": true,
@@ -169,6 +186,6 @@
   },
   "images": {},
   "createdAt": "2026-09-11T08:05:50.204Z",
-  "updatedAt": "2026-09-19T13:52:19.447Z",
-  "lastPublishedCommit": "543cfb5b81d8fbda24c9d679db6e2f7f5653f60e"
+  "updatedAt": "2026-10-10T02:53:47.793Z",
+  "lastPublishedCommit": "a74c17ecc2d9d7baf8e5658244e024ece72f4c16"
 }

@@ -92,6 +92,8 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 .hero--with-image .hero-image, .hero--with-image .hero-content { flex: 1 1 0; }
 .hero-image img { border-radius: var(--radius); }
 @media (max-width: 760px) { .hero--with-image { flex-direction: column; } }
+
+
 .hero--center:not(.hero--with-image) { text-align: center; align-items: center; }
 .hero-title { font-size: clamp(2.1rem, 1.6rem + 2.4vw, 3.6rem); }
 .hero-subtitle { font-size: clamp(1.05rem, 1rem + 0.4vw, 1.3rem); color: var(--color-muted); max-width: 42rem; }
@@ -132,6 +134,16 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 .post-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.6rem; }
 .post-cover { width: 100%; border-radius: var(--radius); margin-bottom: 2rem; aspect-ratio: 16/8; object-fit: cover; }
 .post-content, .prose { max-width: 42rem; }
+/* task lists: a checkbox and its text are one row, so wrapped lines align with
+   the text rather than sliding back under the box */
+.post-content li[data-type="taskItem"], .post-content li:has(> input[type="checkbox"]) {
+  list-style: none; display: flex; align-items: flex-start; gap: 0.5em; margin-left: -1.35em;
+}
+.post-content li[data-type="taskItem"] > input[type="checkbox"],
+.post-content li > input[type="checkbox"] { flex: none; margin-top: 0.3em; }
+.post-content li[data-type="taskItem"] > label { flex: none; display: inline-flex; margin-top: 0.3em; }
+.post-content li[data-type="taskItem"] > div { flex: 1 1 auto; min-width: 0; }
+.post-content li[data-type="taskItem"] > div > p { margin: 0; }
 .post-content :is(h1,h2,h3) { margin-top: 2em; }
 .post-content p, .prose p { margin: 0 0 1.2em; }
 .post-content pre { background: var(--color-surface); padding: 1rem 1.1rem; border-radius: var(--radius); overflow: auto; position: relative; }
@@ -139,10 +151,10 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 .post-content :not(pre) > code { background: var(--color-surface); padding: 0.15em 0.4em; border-radius: 4px; }
 .post-content blockquote { margin: 1.4em 0; padding-left: 1rem; border-left: 3px solid var(--color-primary); color: var(--color-muted); }
 .post-content img { border-radius: var(--radius); }
-/* photos the writer resized / put to one side in the editor (data-size, data-align) */
+/* photos the writer resized / put to one side in the editor (inline width %, data-align) */
 .post-content { display: flow-root; }
 .post-content :is(h1, h2, h3) { clear: both; }
-.post-content img[data-size] { margin-inline: auto; }
+.post-content img:is([style*="width"], [data-size]) { margin-inline: auto; }
 .post-content img[data-size="25"] { width: 25%; }
 .post-content img[data-size="50"] { width: 50%; }
 .post-content img[data-size="75"] { width: 75%; }
@@ -151,8 +163,8 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 @media (max-width: 600px) {
   /* no room to wrap text on a phone: side photos sit centred on their own line */
   .post-content img[data-align] { float: none; margin: 0 auto 1.2em; }
-  .post-content img[data-size="25"] { width: 50%; }
-  .post-content img[data-size="50"] { width: 75%; }
+  /* tiny photos grow a little (min-width beats the inline width) */
+  .post-content img:is([style*="width"], [data-size]) { min-width: 50%; }
 }
 .post-content a, .prose a { overflow-wrap: anywhere; }
 /* wide tables scroll sideways inside the column instead of stretching the page */
@@ -169,12 +181,15 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 .share-btn.is-copied { color: var(--color-primary); border-color: var(--color-primary); }
 .post-comments { max-width: 42rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-border); }
 .comments-hint { color: var(--color-muted); font-size: 0.88em; margin: -0.5rem 0 1.25rem; }
+.comments-hint[hidden] { display: none; }
 .giscus-loading { color: var(--color-muted); font-size: 0.9em; }
 .post-adjacent { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); }
 .post-adjacent-link { text-decoration: none; display: flex; flex-direction: column; gap: 0.3rem; }
 .post-adjacent-next { text-align: right; align-items: flex-end; }
 .post-adjacent-link span { color: var(--color-muted); font-size: 0.85em; }
 @media (max-width: 600px) { .post-adjacent { grid-template-columns: 1fr; } .post-adjacent-next { text-align: left; align-items: flex-start; } }
+
+
 
 /* about */
 .about { display: flex; gap: 2rem; align-items: center; }
@@ -203,3 +218,32 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 .tpl-minimal .hero { text-align: center; align-items: center; padding-block: calc(4.5rem * var(--space-scale)); }
 .tpl-minimal .hero-title { letter-spacing: -0.02em; }
 .tpl-minimal .btn { border-radius: var(--radius); }
+
+/* ── phones and tablets ─────────────────────────────────────── */
+@media (max-width: 760px) {
+  /* The [class*="tpl-"] prefix matches the specificity of the per-structure
+     rules above (.tpl-minimal .hero and friends), which would otherwise win
+     whatever the source order. */
+  /* a sticky header 82px tall eats a tenth of a phone screen */
+  [class*="tpl-"] .site-header-inner { padding-block: 0.45rem; }
+  /* and the hero used to take over half the first screen before any content */
+  [class*="tpl-"] .sec-hero { padding-block: calc(1.2rem * var(--space-scale)); }
+  [class*="tpl-"] .hero { padding-block: calc(1.6rem * var(--space-scale)); gap: 1rem; }
+  [class*="tpl-"] .sec { padding-block: calc(2.2rem * var(--space-scale)); }
+}
+/* Touch devices and narrow windows: Apple and Google both ask for ~44px
+   targets, and several of ours were 24-34px — post titles, nav links and tag
+   pills especially. */
+@media (pointer: coarse), (max-width: 1024px) {
+  .site-nav a { display: flex; align-items: center; min-height: 44px; }
+  .post-card-title a { display: inline-block; padding-block: 0.35rem; }
+  .post-card-tags .tag, .tag-pill, .tag { min-height: 34px; display: inline-flex; align-items: center; }
+  .share-btn, .dark-toggle, .copy-btn, .nav-toggle { min-width: 44px; min-height: 44px; }
+  .post-nav a { display: inline-block; padding-block: 0.4rem; }
+  .site-footer a { display: inline-block; padding-block: 0.3rem; }
+}
+/* Long measures are tiring on a tablet held in two hands; 42rem at tablet type
+   sizes runs to ~79 characters, past the comfortable range. */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .post-content, .prose { max-width: 38rem; }
+}
