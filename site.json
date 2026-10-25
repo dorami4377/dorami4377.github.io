@@ -92,6 +92,17 @@
   ],
   "posts": [
     {
+      "id": "post_9c41e1bb",
+      "slug": "the-october-goodbye",
+      "title": "The October Goodbye 🍁",
+      "excerpt": "A girl leaving home for the first time, a mother holding back her tears, and a goodbye neither of them is ready for. 🍂",
+      "content": "The October breeze brushed against her cheeks. Her eyes welled up with tears. Everything was quite,  but the silence felt strange. \n\nShe sat by the window, staring outside.\n\nSuddenly, a familiar voice broke the silence.\n\n“Ruhi, did you pack your sweater? Should I make khichuri for you?”\n\nHer mother walked over and looked at her.\n\nRuhi threw her arms around her mother and began to cry. Her mother's eyes welled up too.\n\n“Can't I just stay here, Ma? Do I really have to go?”\n\nHer mother gently stroked her hair.\n\n“Of course, you can stay,” she whispered.\n\n “Do you remember the little bird you brought home when you were younger?”\n\n“Yeah. That little sparrow.”\n\n“Yes, that little sparrow. You loved it, didn't you?\n\n But as it grew older, you knew it couldn't stay with you forever. You had to let it fly away because it needed to build a nest of its own. If you had kept it here, it would never have had the chance to build its own home.”\n\nHer mother paused and looked at her.\n\nThen, gently, she brushed away Ruhi's tears.\n\n“Always remember, no matter how far away you go, I'll always be with you—in your heart.”\n\nShe softly patted Ruhi's head.\n\n“Oh, I forgot to turn off the gas!”\n\nPerhaps it was just an excuse.\n\nShe watched her mother walk away. For a moment, she sat there in silence. Then, she slowly began packing her bags.\n\nThe next morning, her father drove her to boarding school.\n\nHer mother stood at the doorway, watching them leave, her eyes glistening with unshed tears.",
+      "tags": [],
+      "date": "2026-10-25T09:00:00.000Z",
+      "draft": false,
+      "featured": false
+    },
+    {
       "id": "post_f2928867",
       "slug": "expectation",
       "title": "Expectation ",
@@ -186,6 +197,6 @@
   },
   "images": {},
   "createdAt": "2026-09-11T08:05:50.204Z",
-  "updatedAt": "2026-10-10T02:53:47.793Z",
-  "lastPublishedCommit": "a74c17ecc2d9d7baf8e5658244e024ece72f4c16"
+  "updatedAt": "2026-10-25T15:06:01.884Z",
+  "lastPublishedCommit": "0ddbea52b3aeea700bfa8a99a1721a0067320c11"
 }
